@@ -1,0 +1,49 @@
+!#/usr/bin/gnuplot
+
+#	set terminal postscript eps color solid size 600, 400
+set terminal postscript eps color solid # size 1280,1024 # fname 'Times-Roman' fsize 10
+set output "SCADA_traffic.ps"
+#	set output "SCADA traffic.svg"
+
+set multiplot layout 3, 1 title _TITLE font "Times-Roman, 13"
+set yrange [:10000]
+set logscale y
+set font "Times-Roman, 10" 
+set key font ",10"
+set xtics font "Times-Roman, 13"
+set ytics font "Times-Roman, 13"
+set key horizontal 
+
+set tics out
+set mxtics
+
+set ylabel 'Frames/second' font "Times-Roman, 13"
+set xlabel 'Time in seconds (relative)' font "Times-Roman, 13"
+set title 'Master' font "Times-Roman, 13"
+plot 'tshark/master.pcap.GOOSE.csv' u 1:2 title "GOOSE" with line lt rgb "green", 'tshark/master.pcap.TCP.csv' u 1:2 title "TCP" with line lt rgb "violet", 'tshark/master.pcap.DNP 3.0.csv' u 1:2 title "DNP3" with line lt rgb "blue", 'tshark/master.pcap.ARP.csv' u 1:2 title "ARP" with line lt rgb "orange",
+
+unset key
+set title 'Slave' font "Times-Roman, 13"
+plot 'tshark/slave.pcap.GOOSE.csv' u 1:2 title "GOOSE" with line lt rgb "green",  'tshark/slave.pcap.TCP.csv' u 1:2 title "TCP" with line lt rgb "violet",  'tshark/slave.pcap.DNP 3.0.csv' u 1:2 title "DNP3" with line lt rgb "blue", 'tshark/slave.pcap.ARP.csv' u 1:2 title "ARP" with line lt rgb "orange"
+
+set title 'Attacker' font "Times-Roman, 13"
+plot 'tshark/attacker.pcap.TCP.csv' u 1:2 title "TCP" with line lt rgb "violet", 'tshark/attacker.pcap.DNP 3.0.csv' u 1:2 title "DNP3" with line lt rgb "blue", 'tshark/attacker.pcap.ARP.csv' u 1:2 title "ARP" with line lt rgb "orange"
+
+# set bmargin at screen 0
+# set key center center horizontal
+# set border 0 
+# unset xlabel
+# unset ylabel
+# unset y2label
+# unset label
+# unset logscale y
+# unset tics
+# set format x ""
+# set format y ""
+# 
+# set yrange [0:1]
+# plot    4 ls 1 linecolor rgb 'green' title "GOOSE",\
+# 	4 ls 2 linecolor rgb 'violet' title "TCP",\
+#     4 ls 3 linecolor rgb 'blue' title "DNP3",\
+#     4 ls 4 linecolor rgb 'orange' title "ARP"
+# unset multiplot

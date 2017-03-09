@@ -1,0 +1,52 @@
+WARNING: No route found for IPv6 destination :: (no default route?)
+Dataset: dataset/20160820175920
+Datasets Types
+	- datagen_1
+	- datagen_2
+	- datagen_3
+Datasets Frequencies
+	- testing_set
+		-- capture time: 2 hours
+		-- min_time: 120 seconds
+		-- max_time: 120 seconds
+Attack Classes
+	- attacks
+		-- injection_replay
+		-- injection_replay_updaterAck
+		-- injection_FreezeObj
+		-- injection_ColdRestart
+		-- injection_WarmRestart
+		-- injection_push
+		-- master_masquerading
+		-- master_hijacking_masquerading
+		-- slave_masquerading
+		-- slave_masquerading_ObjectSpoofBinary
+		-- slave_masquerading_ObjectSpoofCounter
+		-- slave_masquerading_ObjectSpoofBinaryFuzz
+		-- slave_masquerading_ObjectSpoofCounterFuzz
+		-- master_replay
+		-- master_hijacking_replay
+		-- master_replay_flooding
+		-- master_hijacking_replay_flooding
+		-- master_flooding
+		-- master_flooding_freeze
+		-- master_flooding_time
+		-- slave_masquerading_flooding
+		-- MITM_forwarding
+		-- MITM_hijack_injection
+		-- MITM_modification_ImmedFreezeNR
+		-- MITM_modification_BinaryStatus
+		-- MITM_modification_CounterStatus
+		-- MITM_modification_BinaryInputPointDelete
+		-- MITM_modification_BinaryInputDataDelete
+		-- MITM_modification_BinaryInputPointInsert
+		-- MITM_modification_CountBinaryInputPointInsert
+Use Nodes From Configuration (y or n) ?
+ > Traceback (most recent call last):
+  File "/root/DNP3_MITM_Lib 2/DNP3_MITM_Lib/datageneration.py", line 211, in <module>
+    gateway, victim, nodes = config_nodes_all(interface=interface, port="20000", init_nodes_func=init_dnp3_nodes)
+  File "/root/DNP3_MITM_Lib 2/DNP3_MITM_Lib/MITM_Lib/parse_config.py", line 153, in config_nodes_all
+    use_conf, nodes_selected, node_keys, option_use_conf = get_hosts(interface=interface, port=port)
+  File "/root/DNP3_MITM_Lib 2/DNP3_MITM_Lib/MITM_Lib/parse_config.py", line 72, in get_hosts
+    use_conf = str(raw_input("Use Nodes From Configuration (y or n) ?\n > "))
+KeyboardInterrupt
